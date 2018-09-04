@@ -1,0 +1,303 @@
+
+body {
+  background-color: #FFF;
+  padding: 0px;
+  margin: 0px;
+}
+
+#loading {
+  width: 200px;
+  margin: 25% auto;
+  font-style: italic;
+  color: white;
+}
+
+#save{
+  background-color: #fba63e !important;
+  border-radius: 5px !important;
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  font-size: 1vw;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+#save:hover{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
+}
+
+/* ---- コントローラー ----*/
+#controller_container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 9;
+  background-color: #fba63e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+#mode{
+  position: absolute;
+  top:0.5vh;
+  left:1vw;
+  margin: 0;
+  font-style: italic;
+  color: white;
+  font-weight: 200;
+  font-size: 1.5vw;
+}
+
+#file_name {
+  position: absolute;
+  text-align: left;
+  right:1vw;
+  top: 1vh;
+  font-size: 1vw;
+  color: white;
+  z-index: 9;
+}
+
+#controller {
+  max-width: 70vw;
+  display: inline;
+  color:white;
+}
+
+#page {
+  height: 3vh;
+  font-size: 1vw;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "ＭＳ Ｐゴシック", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  max-width: 10vw;
+  height: 4vh;
+  font-size: 0.5vw;
+  padding: 0.5vw;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.left{
+  border-left: solid 1px;
+}
+
+.right{
+  border-right: solid 1px;
+}
+
+button:disabled {
+  color: rgba(0, 0, 0, 0);
+  visibility: hidden;
+}
+
+#page_num, #scale {
+  width: 25px;
+  text-align: right;
+}
+
+/* ---- 文書へのコメント，ページへのコメント ----*/
+
+#note_div {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  position: fixed;
+  top: 40px;
+  left: 0px;
+  /* bottom: 0px; /* relative;  /* absolute;  bottom: 0px; */
+  width: 100%;
+  z-index: 9;
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+}
+
+.note_title_div {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid;
+  border-color: #BBBBBB;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.note_title_span {
+  margin: 2px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "ＭＳ Ｐゴシック", Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+#note_for_doc {
+  width: 60%;
+  border: 1px solid #d1d5da;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1vw;
+  margin: 3px 0 10px 0;
+}
+
+#note_for_doc:focus{
+  outline: 0;
+  border: 1px solid #fba63e;
+}
+
+#note_for_page:focus{
+  outline: 0;
+  border: 1px solid #fba63e;
+}
+
+#note_for_page {
+  width: 60%;
+  border: 1px solid #d1d5da;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1vw;
+  margin: 3px 0 10px 0;
+}
+
+#note_page{
+  width: 20%;
+  border: 1px solid #d1d5da;
+  background-color: #00e000;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1vw;
+  margin: 3px 0 10px 0;
+  cursor: pointer;
+}
+
+#note_page:hover{
+  background-color: #00f000;
+}
+
+#note_doc{
+  width: 20%;
+  border: 1px solid #d1d5da;
+  background-color: #00e000;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1vw;
+  margin: 3px 0 10px 0;
+  cursor: pointer;
+}
+
+#note_doc:hover{
+  background-color: #00f000;
+}
+/* ---- PDFの表示領域内にある要素 ----*/
+#viewerContainer {
+  position: absolute;
+  overflow: auto;
+}
+
+#wrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+#pdfviewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  */
+  border: 0px;
+  padding: 0px;
+}
+
+canvas {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+.noteLayer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.textLayer div{
+  cursor: cell;  /* 初期値のautoだとtextになって，テキストが選択しにくい */
+}
+.mark { /* mark アンダーラインの色指定 */
+  background-color: #FF0000;
+}
+
+#input_div { /* comment メモ テキストエリアのコンテナ */
+  position: absolute;
+  width:1px;
+  height: 1px;
+  top:0;
+  left: 0;
+  z-index: 10;
+}
+#input_text { /* comment メモ テキストエリア */
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 11;
+  resize: none;
+  border: 1px solid #DBDBDB;
+  visibility:hidden;
+}
+
+.blank { /* 空欄 ブランク */
+  outline: solid 1px;
+  margin: 0px;
+  position: absolute;
+  z-index: 9;
+}
+
+/* note左上 (移動など) */
+.comment_knob {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 20px;
+  text-align: center;
+  cursor: move;
+  z-index: 30;
+  background-color: #AAAAAA;
+  /* font-size: 7px; */
+}
+
+.remove_knob {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 30;
+  background-color: #AAAA66;
+  /* font-size: 7px; */
+}
+
+
+.comment_text{
+  visibility: visible !important;
+}
+
+#wrapper{
+  top:150px !important;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>FW 2018</title>
+  <link rel="stylesheet" type="text/css" href="/styles/full/index.css" media="screen and (min-width: 1200px)">
+	<link rel="stylesheet" type="text/css" href="/styles/midium/index.css" media="screen and (max-width:1199px)">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <script src="/libs/superagent/superagent.js"></script>
+  <script src="/scripts/pdfselect/main.js"></script>
+</head>
+<body>
+  <!-- 条件分岐。セッションが残ってればログアウトなどなど -->
+  <% if (username) { %>
+    <div id="controller_container">
+      <h2 id="mode">Fill-in Workbook 2018</h2>
+      <!-- PDFファイル名 -->
+      <p id="file_name"><%= student_number %>  <%= username %></p>
+      <a href="logout" id="logout">ログアウト</a>
+    </div>
+    <div id="main">
+      <div class="parts">
+        <div class="background">
+          <h1>1. タスク選択</h1>
+          <hr color="#eeeeee">
+          <div id="selectbutton" class="button" onclick="select()">
+            <img src="/images/select.svg" class="icon"/>
+            <p>PDFセレクト</p>
+          </div>
+          <% if (status == "教師") { %>
+          <div id="addbutton" class="button" onclick="add()">
+            <img src="/images/add.svg" class="icon"/>
+            <p>PDF登録</p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  <% } else { %>
+    <div id="controller_container">
+      <h2 id="mode"></h2>
+      <!-- PDFファイル名 -->
+      <p id="file_name">Fill-in Workbook 2018</p>
+    </div>
+    <div class="login">
+      <h1>ろぐいん</h1>
+      <form method="post" action="login">
+        <% if (validationErrors) { %>
+          <div>
+            <% validationErrors.forEach(err => {%>
+              <p style="color: red"><%= err.message %></p>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <div class="form">
+          <label>ユーザーネーム</label>
+          <input type="text" name="username" id="username" placeholder="ユーザーネーム"/>
+        </div>
+
+        <div class="form">
+          <label>パスワード </label>
+          <input type="password" name="password" id="password" placeholder="パスワード" enabled />
+        </div>
+
+        <div class="form">
+          <input type="submit" value="Submit" class="submit"/>
+        </div>
+      </form>
+      <hr>
+      <p>まだアカウントをもっていない人はこちら <br><br><a href="signup">サインアップ</a></p>
+    </div>
+  <% } %>
+</body>
+</html>

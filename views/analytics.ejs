@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>アナリティクス</title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/full/text_layer_builder.css">
+    <link rel="stylesheet" type="text/css" href="/styles/full/analytics.css">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script src="/libs/Chart.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/libs/superagent/superagent.js"></script>
+
+    <script src="/scripts/analytics/main.js"></script>
+      <!-- <script src="/scripts/analytics/UserFunction.js"></script>
+    <script src="/scripts/analytics/OwnFunction.js"></script> -->
+    <script src="/scripts/analytics/SidebarSwitcher.js"></script>
+    <script src="/scripts/analytics/AllContents.js"></script>
+    <script src="/scripts/analytics/SwitchAllClick.js"></script>
+    <script src="/scripts/analytics/SwitchAllMenber.js"></script>
+    <script src="/scripts/analytics/SwitchAllKey.js"></script>
+    <script src="/scripts/analytics/SwitchAllMark.js"></script>
+    <script src="/scripts/analytics/SwitchAllNote.js"></script>
+    <script src="/scripts/analytics/SwitchAllInactive.js"></script>
+    <script src="/scripts/analytics/SwitchAllWords.js"></script>
+    <script src="/scripts/analytics/SwitchAllHeatmap.js"></script>
+    <script src="/scripts/analytics/SwitchUserPage.js"></script>
+    <script src="/scripts/analytics/SwitchPageData.js"></script>
+</head>
+
+<body>
+   <div id="controller_container">
+      <h2 id="mode">アナリティクスモード</h2>
+      <span id="file_name">uhorun</span>
+    </div>
+    <div id="data">
+      <div id="sidebar">
+        <ul class="sideMenu">
+          <li id="All">全体の状況</li>
+          <ul class="InMenu"></ul>
+          <li id="Free">個人の状況</li>
+          <ul class="InMenu"></ul>
+          <li id="Page">ページの状況</li>
+          <ul class="InMenu"></ul>
+      </div>
+      <div id=contents>
+
+      </div>
+    </div>
+</body>
+
+</html>

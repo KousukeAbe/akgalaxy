@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ブラウジング</title>
+
+	<link rel="stylesheet" type="text/css" href="/styles/full/text_layer_builder.css">
+	<link rel="stylesheet" type="text/css" href="/styles/full/browsing.css" media="screen and (min-width: 1200px)">
+	<link rel="stylesheet" type="text/css" href="/styles/midium/browsing.css" media="screen and (max-width:1199px)">
+
+	<script src="/libs/pdfjs/pdf.min.js"></script>
+	<script src="/libs/pdfjs/pdf.worker.min.js"></script>
+	<script src="/libs/text-layer-builder"></script>
+  <script src="/libs/superagent/superagent.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Browsing Mode -->
+	<!-- load base class -->
+	<script src="/scripts/Base/BasePdfController.js"></script>
+	<script src="/scripts/Base/BaseBlankModel.js"></script>
+	<script src="/scripts/Base/BasePdfRender.js"></script>
+	<script src="/scripts/Base/BaseMain.js"></script>
+    <!-- load main class -->
+	<script src="/scripts/browsing/main.js"></script>
+	<script src="/scripts/browsing/OwnFunction.js"></script>
+	<script src="/scripts/browsing/BlankModel.js"></script>
+    <script src="/scripts/browsing/comment.js"></script>
+    <script src="/scripts/browsing/note.js"></script>
+    <script src="/scripts/browsing/mark.js"></script>
+	<script src="/scripts/browsing/log.js"></script>
+	<script src="/scripts/browsing/KeepUp.js"></script>
+</head>
+
+<body>
+	<div id="controller_container">
+		<h2 id="mode">ブラウジングモード</h2>
+		<span id="file_name"></span>
+		<div id="controller">
+			<!-- ページめくり関連 -->
+			<button class="controller_component left" id="first">&lt;&lt;</button>
+			<button class="controller_component left" id="prev">&lt;</button>
+			<span class="controller_component" id="page">
+        <input type="text" class = "controller_component" id="page_num"></input>  /
+        <span class = "controller_component" id="page_count"></span>
+			</span>
+			<button class="controller_component right" id="next">&gt;</button>
+			<button class="controller_component right" id="last">&gt;&gt;</button>
+			<button class="controller_component right" id="mark" style="margin-left:1vw" disabled>ライン</button>
+			<button class="controller_component" id="comment" disabled>ノート</button>
+			<!-- <button class="controller_component" id="visibility">hide</button> -->
+			<span class="controller_component" style="margin-left:1vw; font-size:2vh" id="size">
+        PDFサイズ: <input type="text" class = "controller_component" id="scale"></input>%
+      </span>
+      <!-- ページ幅設定 -->
+      <button class="controller_component left" id="width">100%に戻す</button>
+      <button class="controller_component left" id="height">画面に合わせる</button>
+			<!-- <button class="controller_component left" id="report">わからない</button> -->
+			<label style="margin-left:1vw;">学籍番号:</label><label class="student_number" id="student_number"><%= student_number %></label>
+		</div>
+	</div>
+
+	<!-- 以下コメントアウトしても問題なし？ -->
+	<div id="viewer_container">
+		<div id="wrapper">
+			<div id="pdf_viewer"></div>
+		</div>
+	</div>
+
+	<div id="note_div">
+		<div class="note_title_div">
+			<p class="note_title_span">このページへのノート・質問</p>
+			<input type="text" id="note_for_page" />
+			<input type="button" value="送信" id="note_page" />
+		</div>
+		<div class="note_title_div" >
+			<p class="note_title_span">文書全体へのノート・質問</p>
+			<input type="text" id="note_for_doc"/>
+			<input type="button" value="送信" id="note_doc"/>
+		</div>
+	</div>
+
+	<div id="loading">
+		<p>読み込み中</p>
+		<p>Now Loading!</p>
+	</div>
+
+	<button id="save" onclick="javascript:window.history.back(-1);return false;">セーブ</button>
+	
+</body>
+
+</html>

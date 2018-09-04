@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>オーサリング</title>
+
+  <link rel="stylesheet" type="text/css" href="/styles/full/text_layer_builder.css">
+  <link rel="stylesheet" type="text/css" href="/styles/full/authoring.css" media="screen and (min-width: 1200px)">
+	<link rel="stylesheet" type="text/css" href="/styles/midium/authoring.css" media="screen and (max-width:1199px)">
+
+  <!-- ここはライブラリか？ -->
+  <script src="/libs/pdfjs/pdf.min.js"></script>
+  <script src="/libs/pdfjs/pdf.worker.min.js"></script>
+  <script src="/libs/text-layer-builder"></script>
+  <script src="/libs/superagent/superagent.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- Authoring Mode -->
+  <!-- load base class -->
+  <script src="/scripts/Base/BasePdfController.js"></script>
+  <script src="/scripts/Base/BaseBlankModel.js"></script>
+  <script src="/scripts/Base/BasePdfRender.js"></script>
+  <script src="/scripts/Base/BaseMain.js"></script>
+  <!-- load main class -->
+  <script src="/scripts/authoring/main.js"></script>
+  <script src="/scripts/authoring/OwnFunction.js"></script>
+  <script src="/scripts/authoring/BlankModel.js"></script>
+</head>
+
+<body>
+  <div id="controller_container">
+    <h2 id="mode">オーサリングモード</h2>
+    <!-- PDFファイル名 -->
+    <span id="file_name"></span>
+    <!-- コントローラ -->
+    <div id="controller">
+      <!-- ページバック -->
+      <button class="controller_component left" id="first">&lt;&lt;</button>
+      <button class="controller_component left" id="prev">&lt;</button>
+      <!-- 全ページ表示 -->
+      <span class="controller_component" id="page">
+        <input type="text" class = "controller_component" id="page_num"></input> /
+        <span class = "controller_component" id="page_count"></span>
+      </span>
+      <!-- ページフォワード -->
+      <button class="controller_component right" id="next">&gt;</button>
+      <button class="controller_component right" id="last">&gt;&gt;</button>
+      <!-- ページめくり関連ここまで 以下ユーザ操作メニュー -->
+      <!-- 文字を選択すると空欄にすることができる -->
+      <button class="controller_component" id="space" style="margin-left:1vw">空欄</button>
+      <span class="controller_component" style="margin-left:1vw; font-size:2vh" id="size">
+        PDFサイズ: <input type="text" class = "controller_component" id="scale"></input>%
+      </span>
+      <!-- ページ幅設定 -->
+      <button class="controller_component left" id="width">等幅</button>
+      <button class="controller_component left" id="height">画面に合わせる</button>
+    </div>
+  </div>
+  <!--Main Container -->
+  <div id="viewer_container">
+    <div id="wrapper">
+      <div id="pdf_viewer"></div>
+    </div>
+  </div>
+
+  <div id="loading">
+    <h2>Now Loading!</h2>
+  </div>
+  
+  <button id="save" onclick="javascript:window.history.back(-1);return false;">セーブ</button>
+</body>
+
+</html>

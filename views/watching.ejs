@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ウォッチング</title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/full/text_layer_builder.css">
+    <link rel="stylesheet" type="text/css" href="/styles/full/watching.css">
+
+    <script src="/libs/pdfjs/pdf.min.js"></script>
+    <script src="/libs/pdfjs/pdf.worker.min.js"></script>
+    <script src="/libs/text-layer-builder"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/libs/superagent/superagent.js"></script>
+
+    <!-- watching Mode -->
+    <!-- load base class -->
+    <script src="/scripts/Base/BaseBlankModel.js"></script>
+
+
+    <!-- load main class -->
+    <script src="/scripts/watching/OwnFunction.js"></script>
+    <script src="/scripts/watching/BlankModel.js"></script>
+    <script src="/scripts/watching/main.js"></script>
+    <script src="/scripts/watching/Note.js"></script>
+    <script src="/scripts/watching/KeepUp.js"></script>
+</head>
+
+<body>
+  <!--Main Container -->
+  <div id="controller_container">
+    <h2 id="mode">プレゼンモード</h2>
+    <!-- PDFファイル名 -->
+    <p id="file_name"></p>
+  </div>
+  <div id="main">
+    <div id="viewer_container">
+        <div id="wrapper">
+            <div id="pdf_viewer"></div>
+        </div>
+
+        <div id="loading">
+          <h2>Now Loading!</h2>
+        </div>
+    </div>
+
+    <div id="info">
+      <p id="population">閲覧人数</p>
+      <p id="retire">画面外時間30分以上の人数</p>
+    </div>
+
+    <div id="answer">
+      <p id="answer_title">回答状況 全問解答人数: </p>
+      <div id="answerbox"></div>
+    </div>
+
+    <!-- ノート -->
+    <div id="note_div">
+      <div class="note_title_div" id="note_for_doc_title">
+        <span class="note_title_span">文書全体に対する生徒からの質問</span>
+        <textarea id="note_for_doc" rows="10" cols="50" readonly></textarea>
+      </div>
+      <div class="note_title_div" id="note_for_page_title">
+        <span class="note_title_span">このページに対する生徒からの質問</span>
+        <textarea id="note_for_page" rows="10" cols="50" readonly></textarea>
+      </div>
+    </div>
+    <div id="mark_log">
+      <div class="mark_title_div" id="note_for_doc_title">
+        <span class="mark_title_span">コメント状況</span>
+        <textarea id="mark_for_comment" rows="10" cols="50" readonly></textarea>
+      </div>
+      <div class="mark_title_div" id="note_for_page_title">
+        <span class="mark_title_span">マーク状況</span>
+        <textarea id="mark_for_mark" rows="10" cols="50" readonly></textarea>
+      </div>
+    </div>
+    <!-- 集中度ヒートマップ -->
+    <div class="Concentration_HeatMap">
+      <div class="innerbox">
+        <h2>ヒートアップゲージ</h2>
+        <h2 id="heat_per"></h2>
+        <meter id="heat_bar" min=0 max=100 value=${correct / this.userlist.length * 100}>
+      </div>
+    </div>
+
+
+    <div id="controller">
+      <image class="controller_component" id="prev" src="/images/left.png"/>
+      <span id="page">
+        <span id="page_num"></span>
+        <span>/<span>
+        <span id="page_count"></span>
+      </span>
+      <image class="controller_component" id="next" src="/images/right.png" />
+    </div>
+  </div>
+</body>
+</html>

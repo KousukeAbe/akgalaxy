@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>FW 2018</title>
+  <link rel="stylesheet" type="text/css" href="/styles/full/index.css" media="screen and (min-width: 1200px)">
+	<link rel="stylesheet" type="text/css" href="/styles/midium/index.css" media="screen and (max-width:1199px)">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+<body>
+  <div id="controller_container">
+    <h2 id="mode">Fill-in Workbook 2018</h2>
+      <!-- PDFファイル名 -->
+    <p id="file_name">ようこそ！</p>
+  </div>
+  <div class="login">
+    <h1>さいんあっぷ</h1>
+    <form method="post" action="signup">
+      <% if (validationErrors) { %>
+      <div>
+        <% validationErrors.forEach(err => {%>
+        <p style="color: red"><%= err.message %></p>
+      <% }); %>
+      </div>
+    <% } %>
+    <div class="form">
+        <label>ユーザー名(半角英数字20文字以内): </label>
+        <input type="text" name="username" id="username" pattern="^[0-9A-Za-z]{1,30}$" title="半角英数字20文字以内" placeholder="ユーザー名" required/>
+      </div>
+
+      <div class="form">
+        <label>パスワード: </label>
+        <input type="password" name="password" id="password" placeholder="パスワード" enabled required/>
+      </div>
+
+      <div class="form">
+        <label>学籍番号(半角数字7文字): </label>
+        <input type="text" name="studentnum" id="studentnum" placeholder="学籍番号" title="半角数字7文字" pattern="\d{7}"/>
+      </div>
+
+      <div class="form">
+        <input type="submit" value="登録" class="submit"/>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

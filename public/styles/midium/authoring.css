@@ -1,0 +1,172 @@
+body {
+  background-color: #FFF;
+  padding: 0px;
+  margin: 0px;
+}
+
+#loading {
+  width: 200px;
+  margin: 25% auto;
+  font-style: italic;
+  color: white;
+}
+
+/* ---- コントローラー ----*/
+#controller_container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 12vh;
+  width: 100%;
+  z-index: 9;
+  background-color: #fba63e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  text-align: center;
+}
+#page_num{
+  font-size: 3vh;
+  padding-right: 10px;
+}
+
+#mode{
+  text-align: center;
+  font-size: 3vh;
+  margin: 1vh 0 1vh 0;
+  font-style: italic;
+  color: white;
+  font-weight: 500;
+}
+
+#file_name {
+  display: none;
+}
+
+#controller {
+  color:white;
+  max-width: 100%;
+  display: inline;
+}
+
+#controller button{
+  cursor: pointer;
+}
+
+#page {
+  margin: 0 10px 0 10px;
+  height: 5vh;
+  font-size: 3vh;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "ＭＳ Ｐゴシック", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+#size {
+  margin-left: 30px;
+  height: 5vh;
+  font-size: 5vh;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", "ＭＳ Ｐゴシック", Verdana, Geneva, Arial, Helvetica, sans-serif;
+  display: none;
+}
+
+#width{
+  display: none;
+}
+#height{
+  display: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  max-width: 10vw;
+  height: 4vh;
+  font-size: 2vh;
+  padding: 0.5vw;
+  cursor: pointer;
+  color: white;
+}
+
+button:disabled {
+  color: white;
+}
+
+.left{
+  border-left: solid 1px;
+}
+
+.right{
+  border-right: solid 1px;
+}
+
+#page_num, #scale {
+  width: 25px;
+  text-align: right;
+}
+
+/* ---- PDFの表示領域内にある要素 ----*/
+
+#wrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+#pdfviewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  */
+  border: 0px;
+  padding: 0px;
+}
+
+canvas {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+.noteLayer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.textLayer div{
+  cursor: cell;  /* 初期値のautoだとtextになって，テキストが選択しにくい */
+}
+
+.blank {/* 空欄 ブランク */
+  outline: solid 1px;
+  margin: 0px;
+  position: absolute;
+  z-index: 9;
+}
+
+.space { /* 空欄 ブランク */
+  margin: 0px;
+  position: absolute;
+  background-color: #FFEAEA;
+  z-index: 9;
+  /* フォントサイズの調整 */
+  font-size: 100%;
+  cursor: pointer;
+}
+
+.del_space {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 20px;
+  text-align: center;
+  cursor: default;
+  z-index: 30;
+  background-color: #AAAAAA;
+  font-size: 15px;
+}

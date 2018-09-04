@@ -1,0 +1,63 @@
+body {
+  background-color: #FFF;
+  padding: 0px;
+  margin: 0px;
+}
+
+#loading {
+  width: 200px;
+  margin: 25% auto;
+  font-style: italic;
+  color: white;
+}
+
+/* ---- PDFの表示領域内にある要素 ----*/
+
+#viewer_container {
+  overflow: auto;
+  height:95vh;
+}
+
+#wrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+#pdfviewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0px;
+  padding: 0px;
+}
+
+canvas {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+.textLayer div{
+  cursor: default;  /* 初期値のautoだとtextになって，テキストが選択しにくい */
+  user-select: none;
+}
+
+.blank {/* 空欄 ブランク */
+  outline: solid 1px;
+  margin: 0px;
+  position: absolute;
+  z-index: 9;
+}
+
+.space { /* 空欄 ブランク */
+  margin: 0px;
+  position: absolute;
+  background-color: #FFEAEA;
+  z-index: 9;
+  /* フォントサイズの調整 */
+  font-size: 100%;
+  cursor: default;
+}

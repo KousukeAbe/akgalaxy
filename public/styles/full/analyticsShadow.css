@@ -1,0 +1,187 @@
+
+body {
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+/* ---- コントローラー ----*/
+#controller_container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 40px;
+  width: 100%;
+  z-index: 9;
+  background-color: #fba63e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+#mode{
+  position: absolute;
+  top:5px;
+  left: 5px;
+  margin: 0;
+  font-style: italic;
+  color: white;
+  font-size: 1.5vw;
+  font-weight: 200;
+}
+
+#file_name {
+  position: absolute;
+  text-align: left;
+  right:5px;
+  top: 5px;
+  font-size: 1vw;
+  color: white;
+  z-index: 9;
+}
+
+#main{
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  top: 5%;
+  left: 0px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-columns: 2.5fr 2.5fr 5fr;
+  grid-template-rows: 5fr 5fr;
+}
+
+#usermain{
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  top: 5%;
+  left: 0px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-columns: 6fr 2fr 2fr;
+  grid-template-rows: 5fr 5fr;
+}
+
+#graph{
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+  height: 80%;
+}
+
+#pagegraph{
+  margin: 0 auto;
+}
+#usermain > #info{
+  margin-top: 50px;
+  height: 80%;
+  grid-row: 2 / 3;
+  grid-column: 2 / 4;
+}
+
+h2{
+  text-align: center;
+  font-style: italic;
+}
+
+canvas{
+  margin: 0 auto;
+}
+
+.innerdata{
+  text-align: center;
+  font-style: italic;
+  font-size: 35px;
+  color: rgba(0, 61, 92, 0.8);
+  margin-top: -40px;
+}
+
+.maindata{
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 50px;
+  color: rgba(246, 202, 6, 0.8);
+  margin-top: 110px;
+}
+
+#main > #info{
+  grid-row: 1 / 3;
+  grid-column: 3 / 4;
+}
+
+h1{
+  font-style: italic;
+  text-align: right;
+  width: 80%;
+}
+
+form {
+    width: 200px;
+    margin: 5px auto;
+}
+
+label {
+    position: relative;
+    display: block;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: -2px 0 0 0;
+    border: 5px solid transparent;
+    border-top: 7px solid black;
+}
+
+select {
+    cursor: pointer;
+    position: relative;
+    -webkit-appearance : none;
+    display: block;
+    width: 200px;
+    padding: 0.5em 1em;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+  }
+
+#answerbox{
+  width: 90%;
+  height: 80%;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  background-color: white;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#usermain .innerbox{
+  margin-bottom: 30px;
+  margin-left: 20px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-columns: 3fr 3fr 3fr;
+}
+
+#main .innerbox{
+  margin-bottom: 30px;
+  margin-left: 20px;
+  display: grid;
+  grid-gap:10px;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows: 5fr 5fr;
+}
+.innerbox meter{
+  width: 90%;
+  grid-column: 1 / 3;
+}

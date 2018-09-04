@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>プレゼンモード</title>
+
+  <link rel="stylesheet" type="text/css" href="/styles/full/text_layer_builder.css">
+  <link rel="stylesheet" type="text/css" href="/styles/full/prezen.css">
+
+  <!-- ここはライブラリか？ -->
+  <script src="/libs/pdfjs/pdf.min.js"></script>
+  <script src="/libs/pdfjs/pdf.worker.min.js"></script>
+  <script src="/libs/text-layer-builder"></script>
+  <script src="/libs/superagent/superagent.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- prezen Mode -->
+  <!-- load base class -->
+  <script src="/scripts/Base/BaseBlankModel.js"></script>
+  <!-- load main class -->
+  <script src="/scripts/prezen/main.js"></script>
+  <script src="/scripts/prezen/OwnFunction.js"></script>
+  <script src="/scripts/prezen/BlankModel.js"></script>
+</head>
+
+<body>
+  <!--Main Container -->
+  <div id="viewer_container">
+    <div id="wrapper">
+      <div id="pdf_viewer"></div>
+    </div>
+  </div>
+</body>
+</html>
